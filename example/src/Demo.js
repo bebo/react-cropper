@@ -48,38 +48,28 @@ export default class Demo extends Component {
 
   render() {
     return (
-      <div>
-        <div style={{ width: '100%' }}>
-          <input type="file" onChange={this._onChange} />
-          <button onClick={this._useDefaultImage}>Use default img</button>
-          <br />
-          <br />
+      <div style={{ width: 400, height: 400 }}>
+        <div style={{ height: '100%', width: '100%' }}>
           <Cropper
-            style={{ height: 400, width: '100%' }}
-            aspectRatio={16 / 9}
-            preview=".img-preview"
+            style={{ height: '100%', width: '100%' }}
+            aspectRatio={1}
             guides={false}
             src={this.state.src}
             ref="cropper"
             crop={this._crop}
+            cropBoxMovable={false}
+            cropBoxResizable={false}
+            toggleDragModeOnDblclick={false}
+            dragMode="move"
+            modal={false}
+            center={false}
+            highlight={false}
+            background={false}
+            autoCrop
+            autoCropArea={0.8}
+            viewMode={1}
           />
         </div>
-        <div>
-          <div className="box" style={{ width: '50%', float: 'right' }}>
-            <h1>Preview</h1>
-            <div className="img-preview" style={{ width: '100%', float: 'left', height: 300 }} />
-          </div>
-          <div className="box" style={{ width: '50%', float: 'right' }}>
-            <h1 style={{ display: 'inline-block' }}>
-              Crop
-              <button onClick={ this._cropImage } style={{ float: 'right' }}>
-                Crop Image
-              </button>
-            </h1>
-            <img style={{ width: '100%' }} src={this.state.cropResult} />
-          </div>
-        </div>
-        <br style={{ clear: 'both' }} />
       </div>
     );
   }

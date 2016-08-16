@@ -230,14 +230,8 @@ class ReactCropper extends Component {
 
   render() {
     const { src, alt, crossOrigin } = this.props;
-    const divProps = Object.assign({}, this.props);
-    delete divProps.src;
-    delete divProps.alt;
-    delete divProps.crossOrigin;
-
     return (
       <div
-        {...divProps}
         src={null}
         crossOrigin={null}
         alt={null}
